@@ -1,0 +1,16 @@
+[user]
+        email = trevor.mosey@eatstreet.com
+        name = Trevor Mosey
+        signingkey = 4EAE2E7C6F0BB62E
+[commit]
+	gpgsign = true
+[credential]
+	helper = osxkeychain
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[push]
+	default = current
+[rebase]
+	autostash = true
