@@ -8,8 +8,11 @@ export HOMEBREW_NO_ANALYTICS=1
 export DOTNET_CLI_TELEMETRY_OPTOUT='true'
 
 # Aliases
-alias vim=nvim
+function ec2() { aws ec2 describe-instances --profile es | jq -c '.Reservations | .[] | .Instances | .[] | {InstanceId: .InstanceId, Name: (.Tags[]?|select(.Key=="Name")|.Value)}' | grep -iF "$@" }
+alias sso="aws sso login"
+alias ssm="aws ssm start-session --profile=es --target $@" 
 alias up="brew autoremove && brew update && brew upgrade && brew upgrade --cask --greedy && brew cleanup -s && brew doctor && brew missing"
+alias vim=nvim
 
 # Fix home and end on macOS
 bindkey '\e[H'    beginning-of-line
@@ -128,3 +131,4 @@ zstyle ':vcs_info:*' stagedstr ' +'
 # Set the format of the Git information for vcs_info
 zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
 zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
+
