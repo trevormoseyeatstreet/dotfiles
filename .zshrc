@@ -1,3 +1,7 @@
+# key bindings
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+
 # Exports
 export GOPATH=$HOME/go
 export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
@@ -13,10 +17,6 @@ alias sso="aws sso login"
 alias ssm="aws ssm start-session --profile=es --target $@" 
 alias up="brew autoremove && brew update && brew upgrade && brew upgrade --cask --greedy && brew cleanup -s && brew doctor && brew missing"
 alias vim=nvim
-
-# Fix home and end on macOS
-bindkey '\e[H'    beginning-of-line
-bindkey '\e[F'    end-of-line
 
 # Dedupe history
 HISTSIZE=5000
